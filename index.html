@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 1 - 672019014</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<script type="text/javascript">
+function hitung(operator) {
+    var firstNumber = parseFloat(document.getElementById('num1').value);
+    var secondNumber = parseFloat(document.getElementById('num2').value);
+    if (isNaN(firstNumber) || isNaN(secondNumber)) {
+        alert('Format Error! Silahkan masukkan data dengan benar')
+        reset();
+    } else {
+        var hasil;
+        if (operator == '+') {
+            hasil = firstNumber + secondNumber;
+        } else if (operator == '-') {
+            hasil = firstNumber - secondNumber;
+        } else if (operator == '*') {
+            hasil = firstNumber * secondNumber;
+        } else if (operator == '/') {
+            hasil = firstNumber / secondNumber;
+        } else if (operator == '%') {
+            hasil = (secondNumber / firstNumber) * 100;
+        } else if (operator == '^') {
+            hasil = Math.pow(firstNumber, secondNumber);
+        } else if (operator == 'akar') {
+            hasil = Math.sqrt(firstNumber);
+        } else if (operator == '!') {
+            hasil = 1;
+            for (i = firstNumber; i > 0; i--) {
+                hasil = hasil * i;
+            }
+        } else if (operator == 'mod') {
+            hasil = firstNumber % secondNumber;
+        } else if (operator == 'div') {
+            hasil = Math.floor(firstNumber / secondNumber);
+        } else if (operator == 'sin') {
+            hasil = Math.sin(firstNumber);
+        } else if (operator == 'cos') {
+            hasil = Math.cos(firstNumber);
+        } else if (operator == 'tan') {
+            hasil = Math.tan(firstNumber);
+        }
+        document.getElementById('result').value = hasil;
+    }
+}
+
+function reset() {
+    document.getElementById('num1').value = "";
+    document.getElementById('num2').value = "";
+    document.getElementById('result').value = "";
+}
+</script>
+
+<body>
+    <h1>Tugas 1 </h1>
+    <h2>Pemrograman berorientasi platform c</h2>
+    <h3>Program Kalkulator Sederhana</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>First Number</th>
+                <th>Second Number</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="input">
+                <td>
+                    <input type="text" id="num1" placeholder="First Number" required>
+                </td>
+                <td>
+                    <input type="text" id="num2" placeholder="Second Number" required>
+                </td>
+                <td>
+                    <input type="text" id="result" placeholder="Result" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <button onclick="hitung('+')">+</button>
+                    <button onclick="hitung('-')">-</button>
+                    <button onclick="hitung('*')">*</button>
+                    <button onclick="hitung('/')">/</button>
+                    <button onclick="hitung('%')">%</button>
+                    <button onclick="hitung('^')">^</button>
+                    <button onclick="hitung('!')">a!</button>
+                    <button onclick="hitung('akar')">&radic;a</button>
+                    <button onclick="hitung('mod')">MOD</button>
+                    <button onclick="hitung('div')">DIV</button>
+                    <button onclick="hitung('sin')">sin(a)</button>
+                    <button onclick="hitung('cos')">cos(a)</button>
+                    <button onclick="hitung('tan')">tan(a)</button>
+                    <button onclick="reset()">Reset</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Yulius - 672019014</h3>
+</body>
+
+</html>
